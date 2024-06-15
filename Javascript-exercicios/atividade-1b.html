@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média</title>
+    <style>
+
+
+        #media {
+            font-weight: bold;
+        }
+
+        #situacao {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Calculadora de Média</h1>
+<p>Informe as notas abaixo:</p>
+<input type="text" id="nota1" placeholder="Informe a nota 1">
+<br><br>
+<input type="text" id="nota2" placeholder="Informe a nota 2">
+<br><br>
+
+<button onclick="myFunction()">Obter Resultado</button>
+<p>Média: <span id="media"></span></p>
+<p>Situação: <span id="resultado"></span></p>
+
+<script>
+function myFunction() {
+    const nota1 = parseFloat(document.getElementById("nota1").value);
+    const nota2 = parseFloat(document.getElementById("nota2").value);
+    const media = (nota1 + nota2) / 2;
+    let resultado;
+    const resultadoElemento = document.getElementById("resultado");
+    const mediaElemento = document.getElementById("media");
+
+    if (media >= 6) {
+        resultado = "APROVADO";
+        resultadoElemento.style.color = "blue";
+    } else {
+        resultado = "REPROVADO";
+        resultadoElemento.style.color = "red";
+    }
+    mediaElemento.innerHTML = media.toFixed(2);
+    resultadoElemento.innerHTML = resultado;
+}
+</script>
+
+</body>
+</html>

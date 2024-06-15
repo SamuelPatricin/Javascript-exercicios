@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade</title>
+</head>
+<body>
+<h1>The Element Object</h1>
+<h2>The appendChild() Method</h2>
+
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>Enter the text for the new list item and choose a color:</p>
+<input type="text" id="listItemInput" placeholder="Enter list item text">
+
+<br><br>
+
+<p>Choose a color:</p>
+<input type="radio" id="colorRed" name="colors" value="red">
+<label for="colorRed">red</label>
+<input type="radio" id="colorGreen" name="colors" value="green">
+<label for="colorGreen">green</label>
+<input type="radio" id="colorBlue" name="colors" value="blue">
+<label for="colorBlue">blue</label>
+
+<br><br>
+
+<button onclick="myFunction()">Append</button>
+
+<script>
+function myFunction() {
+    const listItemText = document.getElementById("listItemInput").value;
+
+    const selectedColor = document.querySelector('input[name="colors"]:checked').value;
+    
+    const node = document.createElement("li");
+
+    node.style.color = selectedColor;
+
+    const textnode = document.createTextNode(listItemText);
+
+    node.appendChild(textnode);
+
+    document.getElementById("myList").appendChild(node);
+}
+</script>
+
+</body>
+</html>
